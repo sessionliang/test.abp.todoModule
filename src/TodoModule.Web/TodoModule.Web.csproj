@@ -174,12 +174,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="App\Main\views\todo\todo.cshtml" />
+    <EmbeddedResource Include="App\Main\views\todo\index.cshtml" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\Todos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App\Main\views\todo\todo.js" />
+    <EmbeddedResource Include="App\Main\views\todo\index.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TodoModule.Application\TodoModule.Application.csproj">

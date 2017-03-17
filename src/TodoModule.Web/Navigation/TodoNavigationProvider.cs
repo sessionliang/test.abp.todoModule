@@ -12,7 +12,7 @@ namespace TodoModule.Web.Navigation
                     TodoAppPageNames.Tasks,
                     new FixedLocalizableString("Tasks"),
                     icon: "fa fa-tasks",
-                    url: "#/todo",
+                    url: "todo",
                     requiresAuthentication: true
                 )
             );

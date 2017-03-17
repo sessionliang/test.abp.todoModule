@@ -6,7 +6,7 @@
             $stateProvider
                 .state('todo', {
                     url: '/todo',
-                    templateUrl: '/App/Main/views/todo/todo.cshtml',
+                    templateUrl: '/App/Main/views/todo/index.cshtml',
                     menu: 'TodoModule.Tasks'
                 });
         }
