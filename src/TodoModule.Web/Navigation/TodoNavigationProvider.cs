@@ -10,12 +10,17 @@ namespace TodoModule.Web.Navigation
             context.Manager.MainMenu.AddItem(
                 new MenuItemDefinition(
                     TodoAppPageNames.Tasks,
-                    new FixedLocalizableString("Tasks"),
+                    L("Tasks"),
                     icon: "fa fa-tasks",
                     url: "todo",
                     requiresAuthentication: true
                 )
             );
+        }
+
+        private static ILocalizableString L(string name)
+        {
+            return new LocalizableString(name, TodoModuleConsts.LocalizationSourceName);
         }
     }
 }

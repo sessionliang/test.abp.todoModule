@@ -9,6 +9,11 @@ using TodoModule.Todos;
 using Abp.WebApi.Controllers.Dynamic.Builders;
 using Abp.WebApi;
 using Abp.Configuration.Startup;
+using TodoModule.Web.App.Startup;
+using System.Web.Optimization;
+using Abp.Web.Mvc.Resources.Embedded;
+using Abp.Localization.Dictionaries;
+using Abp.Localization.Dictionaries.Xml;
 
 namespace TodoModule.Web
 {
@@ -17,23 +22,17 @@ namespace TodoModule.Web
     {
         public override void PreInitialize()
         {
+
             Configuration.Navigation.Providers.Add<TodoNavigationProvider>();
 
             Configuration.EmbeddedResources.Sources.Add(
                 new EmbeddedResourceSet(
-                    "/App/Main/views/",
+                    "/App/",
                     Assembly.GetExecutingAssembly(),
-                    "TodoModule.Web.App.Main.views"
+                    "TodoModule.Web.App"
                 )
             );
 
-            Configuration.EmbeddedResources.Sources.Add(
-                new EmbeddedResourceSet(
-                    "/Views/",
-                    Assembly.GetExecutingAssembly(),
-                    "TodoModule.Web.Views"
-                )
-            );
         }
 
         public override void Initialize()
@@ -43,6 +42,8 @@ namespace TodoModule.Web
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
                 .ForAll<IApplicationService>(typeof(TodoAppService).Assembly, "todo")
                 .Build();
+
+            AppBundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
 }
